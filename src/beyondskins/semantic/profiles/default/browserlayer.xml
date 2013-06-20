@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<layers>
+ <layer name="beyondskins.semantic"
+        interface="beyondskins.semantic.interfaces.IThemeSpecific" />
+</layers>

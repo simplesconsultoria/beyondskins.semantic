@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="beyondskins.semantic">
+
+ <object name="semantic_portal_images"
+    meta_type="Filesystem Directory View"
+    directory="beyondskins.semantic:skins/images" />
+    
+ <object name="semantic_portal_templates"
+    meta_type="Filesystem Directory View"
+    directory="beyondskins.semantic:skins/templates" />
+
+ <skin-path
+    name="beyondskins.semantic"
+    based-on="Sunburst Theme"
+    >
+  <layer
+     name="semantic_portal_images"
+     insert-after="custom"
+     />
+  <layer
+     name="semantic_portal_templates"
+     insert-after="semantic_portal_images"
+     />
+ </skin-path>
+
+</object>
+

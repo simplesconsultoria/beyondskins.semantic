@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:esi="http://www.edge-delivery.org/esi/1.0"
+    xmlns:str="http://exslt.org/strings"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+    <theme href="index.html" css:if-content="#visual-portal-wrapper" />
+
+    <!--Plone.app.toolbar-->
+    <append theme="/html/body" content="//div[@data-iframe='toolbar']" />
+
+    <!--popups-->
+    <notheme if-path="source_editor.htm" />
+    <notheme if-path="@@manage-viewlets" />
+    <notheme if-path="ploneimage.htm" />
+    <notheme if="$ajax_load" />
+
+    <rules css:if-content="#visual-portal-wrapper">
+
+        <!--Head-->
+        <copy css:content="html" css:theme="html" attributes="lang dir" />
+        <prepend css:content-children="head" css:theme="head" />
+        <drop css:content="head link[rel='shortcut icon']" />
+        <drop css:content="head link[rel='apple-touch-icon']" />
+        <drop css:content="head meta[name='viewport']" />
+
+        <!--Content -->
+        <merge attributes="class" css:content="body" css:theme="body" />
+        <copy attributes="id dir" css:content="body" css:theme="body" />
+	    <copy attributes="role" css:content="content" css:theme="contentspace" />
+
+        <!-- columns -->
+        <replace css:content-children="#portal-column-content" css:theme-children="#main-content" />
+        <replace css:content-children="#portal-column-one" css:theme-children="#column-one" />
+        <replace css:content-children="#portal-column-two" css:theme-children="#column-two" />
+
+        <!--Viewlets-->
+        <replace css:content="#portal-personaltools" css:theme="#user" />
+        <replace css:content="#portal-siteactions" css:theme="#portal-siteactions" />
+        <copy attributes="href title" css:content="#portal-logo" css:theme="#logo a" />
+        <replace css:content="#portal-header p.hiddenStructure" css:theme="#accessibility" />
+        <replace css:content="#portal-searchbox" css:theme="#portal-searchbox" />
+        <replace css:content="#portal-globalnav li" css:theme-children="#nav ul" />
+        <replace css:content-children="#portal-footer" css:theme="#footer-info" />
+        <after css:content="#portal-languageselector" css:theme="#logo" />
+
+      
+    </rules>
+
+    
+</rules>
+

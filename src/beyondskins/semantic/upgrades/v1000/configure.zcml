@@ -1,0 +1,30 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="beyondskins.semantic">
+
+
+  <!-- Profiles -->
+  <genericsetup:registerProfile
+      name="default"
+      title="beyondskins.semantic: Versão 1000"
+      directory="profiles/default"
+      description="Configurações da Versão 1000 do portal"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  
+  <!-- Upgrade Steps -->
+  <genericsetup:upgradeSteps
+        source="0.0"
+        destination="1000"
+        profile="beyondskins.semantic:default">
+
+      <genericsetup:upgradeStep
+          title="Configuração inicial"
+          description="Configuração do site"
+          handler=".handler.setup"
+          />
+
+  </genericsetup:upgradeSteps>
+
+</configure>
