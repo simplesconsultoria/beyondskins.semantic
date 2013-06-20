@@ -39,7 +39,7 @@ setup(name='beyondskins.semantic',
       license='GPLv2',
       packages=find_packages('src', exclude=['ez_setup']),
       package_dir={'': 'src'},
-      namespace_packages=['beyondskins', 'beyondskins.semantic'],
+      namespace_packages=['beyondskins'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
